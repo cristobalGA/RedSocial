@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block title%}Publicaciones{%endblock%}
+{%block sub%}Publicaciones{%endblock%}
+{%block content%}
+<div class="container m-y-1">
+  <div class="row ">
+    
+    {% for item in comentarios %}
+
+            <div class="card" style="height: 15em; width:100%; box-shadow: 5px 5px 17px #888888; padding-bottom: 0px  " >
+                <div class="card-block" >
+                  <h3 class="card-title"><b></b> {{item.nombre}} {{item.id_comentario}}</h2>
+                  <h5 class="card-subtitle text-muted"><b></b> {{ item.texto}}</h4>
+                    
+                    {% for r in respuestas %}
+                     <div id=respuestas>
+                     <blockquote><strong>{{ r.nombre }}:</strong> {{r.texto}}</blockquote>
+                      </div>
+                    {% endfor %}
+                    
+                </div>
+        </div>
+      {% endfor %}
+  </div>
+</div>
+{%endblock%}

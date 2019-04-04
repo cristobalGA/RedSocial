@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{%block title%} Signup {%endblock%}
+{%block sub%}Signup{%endblock%}
+{%block content%}
+  <div class="container m-y-3">
+    <div class="row">
+      <div class="col-xs-6">
+        <form action= "" method="POST" >
+          {% csrf_token %}
+
+          {{form.as_p}}
+
+          <button type="submit" class="btn btn-primary" style="background-color:#FF7F50 ; border-color: white">Register</button>
+          <button type="reset" class="btn btn-danger" style="background: #006666; border-color: white">Cancel</button>
+        </form>
+      </div>
+      <div class="col-xs-6">
+        <h1 class="m-t-3 text-xs-right" style=" text-shadow: 0.1em 0.1em 0.07em #333">Se parte de la mejor red!</h1>
+      </div>
+    </div>
+  </div>
+{%endblock%}

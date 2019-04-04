@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{%block title%}{%endblock%}</title>
+
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font.css' %}" rel="stylesheet">
+    <link href="{% static 'css/app.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light" style="background-color: #006666">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <a class="navbar-brand" href="/">TwitterParra</a>
+      <ul class="nav navbar-nav pull-xs-right">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/publicacion-general">Muro</a>
+        </li>
+        
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="/publicacion">Publicar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/comentario" >Comentar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/publicacion-perfil" >Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout" >Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="/login" >Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup" >Signup</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+</nav>
+<div class="sub container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 style="color: #FF7F50; text-shadow: 0.1em 0.1em 0.05em #333" >{% block sub %}{% endblock %}</h1>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+      {% block content %}{% endblock %}
+    <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript">
+      $('input,select,textarea').addClass('form-control');
+    </script>
+
+</body>
+  
+</div>
+</html>
